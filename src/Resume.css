@@ -114,14 +114,36 @@ li {
 .projects .firstLine{
     display: flex;
     flex-direction: row;
-    margin: 0 0 0 .5rem;
+    justify-content: space-between;
+    margin: 0 .5rem 0 .5rem;
+}
+.projects .firstLine .left{
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 0;
 }
 
 .projects .firstLine p{
-    margin: 0 0 0 0;
-}
-#projectName{
-    font-weight: bold;
-    
+    margin: 0 3px 2px 0;
 }
 
+
+.projects .firstLine p{
+    margin: 0 3px 2px 0;
+}
+
+#projectName{
+    font-weight: bold;
+}
+
+.projects .secondLine{
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 .5rem;
+}
+
+.projects .secondLine p{
+    margin: 0 3px 2px 0
+}
+
+.projects .thirdLine 

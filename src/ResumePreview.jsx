@@ -56,15 +56,21 @@ function ResumePreview({ resumeData, projects }) {
         {projects.map((proj, index) => (
           <div className="projects">
             <div className="firstLine">
-              <p id="projectName">{proj.name},</p>
-              <p>{proj.org}</p>
-              <p>{proj.date}</p>
+              <div className="left">
+                <p id="projectName">{proj.name},</p>
+                <p>{proj.org}</p>
+              </div>
+              <div className="right">
+                <p>{proj.date}</p>
+              </div>
             </div>
             <div className="secondLine">
               <p>{proj.position}</p>
             </div>
             <div className="thirdLine">
-              <p>{proj.content}</p>
+              <ul>
+                <li>{proj.content}</li>
+              </ul>
             </div>
           </div>
         ))}
