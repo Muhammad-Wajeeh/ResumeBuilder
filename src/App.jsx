@@ -28,10 +28,13 @@ function App() {
     skills: "",
   });
 
+  
+  const [projects, setProjects] = useState([]);
+
   return (
     <div className="app-container">
-      <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
-      <ResumePreview resumeData={resumeData} />
+      <ResumeForm resumeData={resumeData} setResumeData={setResumeData} projects={projects} setProjects={setProjects} />
+      <ResumePreview resumeData={resumeData} projects={projects}/>
     </div>
   );
 }

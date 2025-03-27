@@ -1,61 +1,30 @@
 import React, { useState, useRef } from "react";
+import { Project } from "./projectClass.jsx";
 
-function ResumeForm({ resumeData, setResumeData }) {
-
+function ResumeForm({ resumeData, setResumeData, projects, setProjects }) {
   var projectCounter = useRef(0);
-  const [project, setProject] = useState([]);
-  const [projectContent, setProjectContent] = useState({
-    projectName: "",
-    projectOrg: "",
-    projectDate: "",
-    projectPosition: "",
-    projectContent: "",
-  });
 
-  
+  const handleProjectChange = (index, field, value) => {
+    const updated = [...projects];
+    updated[index][field] = value;
+    setProjects(updated);
+  };
+
   function handleChange(e) {
     setResumeData({ ...resumeData, [e.target.name]: e.target.value });
   }
-  
-  function handleProjectChange(e) {
-    setProjectContent({ ...projectContent, [e.target.name]: e.target.value });
-  }
-
-  function AddNewProjectHelper({ projectContent, projectCount }) {
-    return (
-      <>
-        <details>
-          <summary>Project {projectCount}</summary>
-          <textarea
-            name="projectName"
-            placeholder="Project Name"
-            value={projectContent.projectName}
-            onChange={handleProjectChange}
-          />
-        </details>
-      </>
-    );
-  }
 
 
-  function addNewProject() {
+  const addNewProject = () => {
     projectCounter.current += 1;
-    setProject([
-      ...project,
-      <AddNewProjectHelper
-        projectContent={projectContent}
-        projectCount={projectCounter.current}
-      />,
-    ]);
-  }
+    setProjects([...projects, new Project()]);
+  };
 
-  function remNewProject() {
-    const updatedProjects = [...project];
-    updatedProjects.pop();
-    setProject(updatedProjects);
-  }
-
-
+  const remNewProject = () => {
+    const updated = [...projects];
+    updated.pop();
+    setProjects(updated);
+  };
 
   return (
     <div className="resume-form">
@@ -118,26 +87,52 @@ function ResumeForm({ resumeData, setResumeData }) {
         />
       </details>
 
-      <details>
-        <summary>Technical Skills</summary>
-        <textarea
-          name="langsAndFrames"
-          placeholder="Languages & Frameworks"
-          value={resumeData.education.school}
-          onChange={handleChange}
-        />
-        <textarea
-          name="programmingSkills"
-          placeholder="Programming Skills"
-          value={resumeData.education.city}
-          onChange={handleChange}
-        />
-      </details>
-      <details>
+      <details open>
         <summary>Project Experience</summary>
         <button onClick={addNewProject}>Add Project</button>
         <button onClick={remNewProject}>Remove Project</button>
-        {project}
+
+        {projects.map((proj, index) => (
+          <details key={index}>
+            <summary>Project {index + 1}</summary>
+            <textarea
+              placeholder="Project Name"
+              value={proj.name}
+              onChange={(e) =>
+                handleProjectChange(index, "name", e.target.value)
+              }
+            />
+            <textarea
+              placeholder="Organization"
+              value={proj.org}
+              onChange={(e) =>
+                handleProjectChange(index, "org", e.target.value)
+              }
+            />
+            <textarea
+              placeholder="Date"
+              value={proj.date}
+              onChange={(e) =>
+                handleProjectChange(index, "date", e.target.value)
+              }
+            />
+             <textarea
+              placeholder="Position"
+              value={proj.position }
+              onChange={(e) =>
+                handleProjectChange(index, "position", e.target.value)
+              }
+            />
+             <textarea
+              placeholder="Achievements/Responsibilites"
+              value={proj.content}
+              onChange={(e) =>
+                handleProjectChange(index, "content", e.target.value)
+              }
+            />
+            
+          </details>
+        ))}
       </details>
     </div>
   );
