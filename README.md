@@ -1,6 +1,5 @@
-# ResumeMaker
 
-ResumeMaker is a web application built with **React** that helps technical university students easily create professional resumes. The app takes structured input from the user and formats it into a clean, readable resume—perfect for job applications, internships, or career fairs.
+A Resume Maker web application that is built with **React** that helps technical university students easily create professional resumes. The app takes structured input from the user and formats it into a clean, readable resume—perfect for job applications, internships, or career fairs.
 
 ## ✨ Features
 
