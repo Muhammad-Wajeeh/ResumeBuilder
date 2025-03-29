@@ -1,12 +1,51 @@
-# React + Vite
+# ResumeMaker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ResumeMaker is a web application built with **React** that helps technical university students easily create professional resumes. The app takes structured input from the user and formats it into a clean, readable resume—perfect for job applications, internships, or career fairs.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📄 Live resume preview as you type  
+- 🧠 Tailored input sections for:
+  - Education
+  - Technical Skills
+  - Project Experience
+  - Work Experience
+  - Campus Involvement
+  - Contact Information
+- ➕ Dynamic form fields (Add/Remove sections like Projects or Work)
+- 🎨 Clean, printable layout for resumes
 
-## Expanding the ESLint configuration
+## 🎯 Target Audience
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Technical students in university looking for a fast, easy, and consistent way to build a resume for technical roles in software, data science, engineering, and more.
+
+## 🛠 Tech Stack
+
+- **React** (with hooks)
+- **Vite** (for fast bundling)
+- **CSS** for styling (customizable themes coming soon)
+
+## 🚀 Getting Started
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/resumemaker.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+## 🧾 License
+
+MIT License.
